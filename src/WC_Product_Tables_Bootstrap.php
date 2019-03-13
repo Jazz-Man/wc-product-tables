@@ -65,4 +65,3 @@ class WC_Product_Tables_Bootstrap
     }
 }
 
-new WC_Product_Tables_Bootstrap();

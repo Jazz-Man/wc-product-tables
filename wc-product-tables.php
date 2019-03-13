@@ -13,6 +13,7 @@
  * @author  Automattic
  */
 
+use JazzMan\WCProductTables\WC_Product_Tables_Bootstrap;
 use JazzMan\WCProductTables\WC_Product_Tables_Install;
 
 if ( ! defined('ABSPATH')) {
@@ -55,7 +56,7 @@ function wc_custom_product_tables_bootstrap()
     }
 
     // Include the main bootstrap class.
-    require_once __DIR__ . '/src/WC_Product_Tables_Bootstrap.php';
+    new WC_Product_Tables_Bootstrap();
 }
 
 add_action('plugins_loaded', 'wc_custom_product_tables_bootstrap');
