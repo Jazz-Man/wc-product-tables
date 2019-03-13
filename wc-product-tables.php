@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Product Tables Feature Plugin
  * Plugin URI: https://woocommerce.com/
- * Description: Implements new data-stores and moves product data into custom tables, with a new, normalised data
+ * Description: Implements new DataStores and moves product data into custom tables, with a new, normalised data
  * structure. Requires PHP 5.3 or greater. Version: 1.0.0-dev Author: Automattic Author URI: https://woocommerce.com
  * Requires at least: 4.4 Tested up to: 4.7
  *
@@ -12,6 +12,8 @@
  * @package WooCommerce Product Tables Feature Plugin
  * @author  Automattic
  */
+
+use JazzMan\WCProductTables\WC_Product_Tables_Install;
 
 if ( ! defined('ABSPATH')) {
     exit;
@@ -53,7 +55,7 @@ function wc_custom_product_tables_bootstrap()
     }
 
     // Include the main bootstrap class.
-    require_once __DIR__ . '/src/class-wc-product-tables-bootstrap.php';
+    require_once __DIR__ . '/src/WC_Product_Tables_Bootstrap.php';
 }
 
 add_action('plugins_loaded', 'wc_custom_product_tables_bootstrap');
@@ -63,7 +65,6 @@ add_action('plugins_loaded', 'wc_custom_product_tables_bootstrap');
  */
 function wc_custom_product_tables_activate()
 {
-    include_once __DIR__ . '/src/class-wc-product-tables-install.php';
     WC_Product_Tables_Install::activate();
 }
 

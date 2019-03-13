@@ -15,7 +15,9 @@
   "require-dev": {
     "roave/security-advisories": "dev-master",
     "roots/wordpress": "^5.1",
-    "woocommerce/woocommerce": "^3.5"
+    "woocommerce/woocommerce": "^3.5",
+    "dg/composer-cleaner": "^2.0",
+    "wp-cli/db-command": "^2.0"
   },
   "require": {
     "php": ">=7.0",
