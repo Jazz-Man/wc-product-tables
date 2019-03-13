@@ -3,31 +3,35 @@
  * Installation related functions and actions
  *
  * @package WooCommerce Product Tables Feature Plugin
- * @author Automattic
+ * @author  Automattic
  */
+
+namespace JazzMan\WCProductTables;
 
 /**
  * Class handling table installs
  */
-class WC_Product_Tables_Install {
+class WC_Product_Tables_Install
+{
 
-	/**
-	 * Activate function, runs on plugin activation
-	 *
-	 * @return void
-	 */
-	public static function activate() {
-		global $wpdb;
+    /**
+     * Activate function, runs on plugin activation
+     *
+     * @return void
+     */
+    public static function activate()
+    {
+        global $wpdb;
 
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-		$collate = '';
+        $collate = '';
 
-		if ( $wpdb->has_cap( 'collation' ) ) {
-			$collate = $wpdb->get_charset_collate();
-		}
+        if ($wpdb->has_cap('collation')) {
+            $collate = $wpdb->get_charset_collate();
+        }
 
-		$tables = "
+        $tables = "
 			CREATE TABLE {$wpdb->prefix}wc_products (
 			  `product_id` bigint(20) NOT NULL,
 			  `sku` varchar(100) NULL default '',
@@ -117,6 +121,6 @@ class WC_Product_Tables_Install {
 			) $collate;
 		";
 
-		dbDelta( $tables );
-	}
+        dbDelta($tables);
+    }
 }

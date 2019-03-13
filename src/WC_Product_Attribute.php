@@ -1,4 +1,8 @@
 <?php
+
+namespace JazzMan\WCProductTables;
+
+
 /**
  * Represents a product attribute.
  *
@@ -18,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * WC_Product_Attribute class.
  */
-class WC_Product_Attribute implements ArrayAccess {
+class WC_Product_Attribute implements \ArrayAccess {
 
 	/**
 	 * Data array.
